@@ -63,10 +63,10 @@ def show_confusion_matrix(confusion_matrix, classes):
         row = [confusion_matrix[(i, pred)] for pred in classes]
         print(f"\t{i}\t" + "\t".join(map(str, row)))
 
-# run
+# run: python3 knn.py <trainset_file> <testset_file> <k>
 def main():
     if len(sys.argv) != 4:
-        print("Usage: python knn.py <trainset_file> <testset_file> <k>")
+        print("Usage: python3 knn.py <trainset_file> <testset_file> <k>")
         return
 
     trainset_file = sys.argv[1]
