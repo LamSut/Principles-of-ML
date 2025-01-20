@@ -14,7 +14,7 @@ def load_dataset(filename):
                 *features, label = map(float, values)
                 data.append((features, int(label)))
             except ValueError:
-                print(f"Skipping invalid line in {filename}: {ln.strip()}")
+                print(f"Skip invalid line in {filename}: {ln.strip()}")
     return data
 
 # manhattan distance between 2 points
@@ -63,10 +63,10 @@ def show_confusion_matrix(confusion_matrix, classes):
         row = [confusion_matrix[(i, pred)] for pred in classes]
         print(f"\t{i}\t" + "\t".join(map(str, row)))
 
-# run: python3 knn.py <trainset_file> <testset_file> <k>
 def main():
     if len(sys.argv) != 4:
-        print("Usage: python3 knn.py <trainset_file> <testset_file> <k>")
+        print("How to use: python3 kNN-ex2.py <trainset_file> <testset_file> <k>")
+        print("For example: python3 kNN-ex2.py data/faces/data.trn data/faces/data.tst 3")
         return
 
     trainset_file = sys.argv[1]
@@ -80,7 +80,7 @@ def main():
     # evaluate model
     confusion_matrix, classes, accuracy = evaluate_model(train_data, test_data, k)
 
-    # results
+    # result
     show_confusion_matrix(confusion_matrix, classes)
     print(f"Accuracy: {accuracy * 100:.2f}%")
 
