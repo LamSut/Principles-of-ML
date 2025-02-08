@@ -66,7 +66,7 @@ def show_confusion_matrix(confusion_matrix, classes):
 def main():
     if len(sys.argv) != 4:
         print("How to use: python3 kNN-ex2.py <trainset_file> <testset_file> <k>")
-        print("For example: python3 kNN-ex2.py data/faces/data.trn data/faces/data.tst 3")
+        print("For example: python3 kNN-ex2.py ../data/faces/data.trn ../data/faces/data.tst 3")
         return
 
     trainset_file = sys.argv[1]
