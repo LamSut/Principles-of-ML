@@ -26,8 +26,8 @@ def main(train_file, test_file):
     
     # confusion matrix
     cm = confusion_matrix(y_test, y_pred)
-    cm_df = pd.DataFrame(cm, index=[f'True {i}' for i in range(len(cm))], 
-                            columns=[f'Pred {i}' for i in range(len(cm))])
+    cm_df = pd.DataFrame(cm, index=[f'True:{i}' for i in range(len(cm))], 
+                            columns=[f'{i}' for i in range(len(cm))])
     print('------------------------------')
     print('Confusion Matrix:')
     print(cm_df.to_string())
