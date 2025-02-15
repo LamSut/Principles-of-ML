@@ -112,7 +112,7 @@ def visualize_tree(tree, parent_name='', graph=None):
     return graph
 
 graph = visualize_tree(tree)
-graph.render('decision_tree', view=True)
+graph.render('dectree-ex1-graph', view=True)
 
 rules = extract_rules(tree, attributes, "", [])
 print("\nInductive Rules:")
