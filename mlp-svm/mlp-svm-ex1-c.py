@@ -10,19 +10,16 @@ y = np.array([-1, 1, 1, 1])
 svm = SVC(kernel='linear', C=1e6)
 svm.fit(X, y)
 
-# plot training data
+# plot 
 plt.scatter(X[:, 0], X[:, 1], c=y, cmap='bwr', edgecolors='k', s=100)
 
-# mesh grid for decision boundary & margins
 xx, yy = np.meshgrid(np.linspace(-0.2, 1.2, 100), np.linspace(-0.2, 1.2, 100))
 Z = svm.decision_function(np.c_[xx.ravel(), yy.ravel()])
 Z = Z.reshape(xx.shape)
 
-# plot decision boundary
 plt.contour(xx, yy, Z, colors='k', levels=[-1, 0, 1], linestyles=['dashed', 'solid', 'dashed'])
 plt.scatter(svm.support_vectors_[:, 0], svm.support_vectors_[:, 1], s=200, edgecolors='k', facecolors='none', linewidths=2)
 
-# set labels
 plt.xlabel("x1")
 plt.ylabel("x2")
 plt.title("SVM Classification Model")
