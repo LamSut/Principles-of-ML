@@ -37,7 +37,7 @@ def train_perceptron(train_file, test_file, eta, maxit):
 
 def main():
     if len(sys.argv) != 5:
-        print("Usage: python3 perceptron.py <trainset_file> <testset_file> <eta> <maxit>")
+        print("Usage: python3 mlp-svm-ex2.py <trainset_file> <testset_file> <eta> <maxit>")
         return
     
     train_file = sys.argv[1]
