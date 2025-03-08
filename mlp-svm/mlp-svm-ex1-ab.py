@@ -22,7 +22,7 @@ print(f"Final weights: {w}")
 # plot
 plt.figure(figsize=(6, 6))
 for i, point in enumerate(X):
-    plt.scatter(point[0], point[1], color='red' if y[i] == -1 else 'blue', s=100, edgecolors='k')
+    plt.scatter(point[0], point[1], color='blue' if y[i] == -1 else 'red', s=100, edgecolors='k')
 
 x_vals = np.linspace(-0.1, 1.1, 100)
 y_vals = -(w[1] * x_vals + w[0]) / w[2]
