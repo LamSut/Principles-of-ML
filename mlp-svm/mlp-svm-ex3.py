@@ -18,7 +18,7 @@ X = data[:, :2]
 y = data[:, 2]
 
 # train SVC model
-model = SVC(kernel='linear')
+model = SVC(kernel='poly',degree=3, C=100)
 model.fit(X, y)
 
 # result
