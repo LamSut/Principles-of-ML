@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
 
-# Define the dataset
+# dataset
 X = np.array([
     [0.204000, 0.834000],
     [0.222000, 0.730000],
@@ -29,18 +29,22 @@ X = np.array([
     [0.574000, 0.742000]
 ])
 
-# Apply KMeans clustering
+# kmeans clustering
 kmeans = KMeans(n_clusters=4, random_state=42, n_init=10)
 kmeans.fit(X)
 labels = kmeans.labels_
+centers = kmeans.cluster_centers_
 
-# Plot the clusters
-plt.scatter(X[:, 0], X[:, 1], c=labels, cmap='viridis', edgecolors='k')
-plt.scatter(kmeans.cluster_centers_[:, 0], kmeans.cluster_centers_[:, 1], 
-            s=200, c='red', marker='X', label='Centroids')
+# plot
+plt.figure(figsize=(8, 6))
+scatter = plt.scatter(X[:, 0], X[:, 1], c=labels, cmap='viridis', edgecolors='k', marker='D')
+
+for i, center in enumerate(centers):
+    color = scatter.to_rgba(i)
+    plt.scatter(center[0], center[1], c=[color], marker='o', s=200, edgecolors='black')
+    plt.text(center[0] + 0.02, center[1] + 0.02, f'K{i+1}', fontsize=12, fontweight='bold', color=color)
 
 plt.xlabel('X1')
 plt.ylabel('X2')
 plt.title('K-Means Clustering (k=4)')
-plt.legend()
 plt.show()
